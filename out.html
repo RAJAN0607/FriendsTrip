@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="out.css">
+    <title>Travel Checkout</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Travel Checkout</h2>
+        <form id="checkoutForm" action="process_order.php" method="post">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required>
+
+            <label for="departureDate">Departure Date:</label>
+            <input type="date" id="departureDate" name="departureDate" required>
+
+            <label for="paymentMethod">Payment Method:</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+                <option value="creditCard">Credit Card</option>
+                <option value="paypal">UPI</option>
+            </select>
+            <div id="creditCardDetails" style="display: none;">
+                <!-- Credit Card details fields go here -->
+                <label for="creditCardNumber">Credit Card Number:</label>
+                <input type="text" id="creditCardNumber" name="creditCardNumber" required>
+                <label for="UserName">Name of user:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function showCreditCardDetails() {
+            var paymentMethod = document.getElementById("paymentMethod");
+            var creditCardDetails = document.getElementById("creditCardDetails");
+
+            if (paymentMethod.value === "creditCard") {
+                creditCardDetails.style.display = "block";
+            } else {
+                creditCardDetails.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
